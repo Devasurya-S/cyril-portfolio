@@ -13,7 +13,7 @@ const Navbar = () => {
 					</a>
 
 					<button
-						className="navbar-toggler p-0 border-0"
+						className="navbar-toggler p-0 border-0 shadow-none"
 						type="button"
 						data-bs-toggle="offcanvas"
 						data-bs-target="#offcanvasNavbar"
@@ -60,7 +60,7 @@ const Navbar = () => {
 						</div>
 					</div>
 					<div className="ms-4">
-						<PrimaryButton dark={true}/>
+						<PrimaryButton dark={true} />
 					</div>
 				</div>
 			</nav>
