@@ -1,0 +1,110 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Poppins", sans-serif !important;
+	background-color: #f5f4f0 !important;
+}
+
+.primary-bg {
+	background-color: #f5f4f0 !important;
+}
+
+.hd-type-2 {
+	font-size: 50px;
+}
+
+.footer-social-icon {
+	width: 24px;
+	height: 24px;
+}
+
+footer .active {
+	color: #ffb200 !important;
+}
+
+footer .nav-link {
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+
+footer .nav-link:hover {
+	color: #ffb200 !important;
+}
+
+.cstm-btn {
+	border: 1px solid #000000;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.cstm-btn img {
+	height: 18px;
+}
+
+.btn-type-3 {
+	background-color: #ffb200;
+	border-color: #ffb200;
+	color: #000000;
+}
+
+.project-card {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+}
+
+.project-card:hover::before {
+	transform: scale(1.1);
+}
+
+.project-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: inherit;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	transition: transform 0.8s ease-in-out;
+	-webkit-transition: transform 0.8s ease-in-out;
+	-moz-transition: transform 0.8s ease-in-out;
+	-ms-transition: transform 0.8s ease-in-out;
+	-o-transition: transform 0.8s ease-in-out;
+}
+
+.arrowAnimation {
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+
+.arrowAnimation:hover {
+	transform: scale(1.3);
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	-o-transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+	.project-card {
+		height: 300px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.project-card {
+		height: 400px;
+	}
+}
