@@ -47,7 +47,7 @@ footer {
 	color: #fff;
 }
 
-.cstm-btn span img{
+.cstm-btn span img {
 	height: 18px;
 	transition: all 0.3s ease-in-out;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -135,8 +135,9 @@ footer {
 	display: inline-block;
 	opacity: 0;
 	transform: translateY(20px);
-	animation: slideUp 0.9s ease-in-out forwards;
-	-webkit-animation: slideUp 0.9s ease-in-out forwards;
+	animation: slideUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+	will-change: transform, opacity;
+	-webkit-animation: slideUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
 @keyframes slideUp {
