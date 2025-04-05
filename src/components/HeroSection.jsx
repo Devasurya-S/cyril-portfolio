@@ -3,14 +3,18 @@ import React, { useState, useEffect } from "react";
 const HeroSection = () => {
 	const professions = ["UX/UI Designer", "Product Designer"];
 	const [currentProfessionIndex, setCurrentProfessionIndex] = useState(0);
-	const [key, setKey] = useState(0);
+	const [visible, setVisible] = useState(true);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setCurrentProfessionIndex(
-				(prevIndex) => (prevIndex + 1) % professions.length
-			);
-			setKey((prevKey) => prevKey + 1); // Update key to restart animation
+			setVisible(false); // start fade out
+
+			setTimeout(() => {
+				setCurrentProfessionIndex(
+					(prevIndex) => (prevIndex + 1) % professions.length
+				);
+				setVisible(true); // start fade in
+			}, 500); // match transition duration
 		}, 3000);
 
 		return () => clearInterval(interval);
@@ -24,9 +28,20 @@ const HeroSection = () => {
 						<div className="col-lg-7 col-xxl-6">
 							<h2 className="display-3 fw-medium">Hello</h2>
 							<h2 className="display-3 fw-medium">I’m Cyril Cherian,</h2>
-							<h2 key={key} className="display-3 fw-medium profession-text">
+							<h2
+								className={`display-3 fw-medium profession-text ${
+									visible ? "show" : ""
+								}`}
+							>
 								{professions[currentProfessionIndex]}
 							</h2>
+							<div className="water-mark mt-5 pt-xl-4">
+								<img
+									src="/images/sos-watermark.png"
+									className="w-100"
+									alt="watermark"
+								/>
+							</div>
 						</div>
 						<div className="col-10 col-md-6 col-lg-5">
 							<div>
@@ -36,38 +51,6 @@ const HeroSection = () => {
 									alt="picture of cyril cheriyan"
 								/>
 							</div>
-							{/* <div>
-								<div className="d-flex justify-content-start align-items-center gap-5">
-									<div className="square">
-										<img
-											src="/images/square.svg"
-											className="img-fluid"
-											alt="picture of a square"
-										/>
-									</div>
-									<div className="circle">
-										<img
-											src="/images/circle.svg"
-											className="img-fluid"
-											alt="picture of a square"
-										/>
-									</div>
-								</div>
-								<div className="semicircle mt-3 position-relative">
-									<img
-										src="/images/semicircle.svg"
-										className="img-fluid"
-										alt="picture of a square"
-									/>
-									<div className="position-absolute bottom-0 start-50 translate-middle-x border">
-										<img
-											src="/images/profile-pic.png"
-											className="w-100"
-											alt="picture of cyril cherian"
-										/>
-									</div>
-								</div>
-							</div> */}
 						</div>
 					</div>
 				</div>

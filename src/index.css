@@ -135,9 +135,13 @@ footer {
 	display: inline-block;
 	opacity: 0;
 	transform: translateY(20px);
-	animation: slideUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+	transition: opacity 0.5s ease, transform 0.5s ease;
 	will-change: transform, opacity;
-	-webkit-animation: slideUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.profession-text.show {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 @keyframes slideUp {
@@ -193,10 +197,21 @@ footer {
 		}
 	}
 }
+
+.water-mark {
+	width: 119px;
+	height: 18px;
+}
+
 /* 🌟 Responsive Design */
 @media (max-width: 1200px) {
 	.project-card {
 		height: 400px;
+	}
+
+	.water-mark {
+		width: 60px;
+		height: auto;
 	}
 }
 
