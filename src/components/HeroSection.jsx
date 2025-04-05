@@ -3,16 +3,18 @@ import React, { useState, useEffect } from "react";
 const HeroSection = () => {
 	const professions = ["UX/UI Designer", "Product Designer"];
 	const [currentProfessionIndex, setCurrentProfessionIndex] = useState(0);
-  const [key, setKey] = useState(0);
+	const [key, setKey] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentProfessionIndex((prevIndex) => (prevIndex + 1) % professions.length);
-      setKey((prevKey) => prevKey + 1); // Update key to restart animation
-    }, 2000);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentProfessionIndex(
+				(prevIndex) => (prevIndex + 1) % professions.length
+			);
+			setKey((prevKey) => prevKey + 1); // Update key to restart animation
+		}, 3000);
 
-    return () => clearInterval(interval);
-  }, []);
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<section>
