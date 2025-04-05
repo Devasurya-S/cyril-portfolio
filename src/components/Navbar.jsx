@@ -1,64 +1,112 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PrimaryButton from "./PrimaryButton";
+import SocialLinks from "./SocialLinks";
 
 const Navbar = () => {
-	let logoText = "cyril</SoS>";
+	const [showMobileMenu, setShowMobileMenu] = useState(false);
+	const mobileMenuRef = useRef(null);
+
+	const toggleMenu = () => {
+		setShowMobileMenu((prev) => !prev);
+	};
+
+	// Close when clicking outside
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (
+				mobileMenuRef.current &&
+				!mobileMenuRef.current.contains(event.target)
+			) {
+				setShowMobileMenu(false);
+			}
+		};
+
+		if (showMobileMenu) {
+			document.addEventListener("mousedown", handleClickOutside);
+		} else {
+			document.removeEventListener("mousedown", handleClickOutside);
+		}
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [showMobileMenu]);
 
 	return (
-		<header className="sticky-top primary-bg">
+		<header className="sticky-top primary-bg py-3">
 			<nav className="navbar navbar-expand-md">
-				<div className="container">
+				<div className="container position-relative">
 					<a className="navbar-brand fw-semibold d-none d-md-block" href="#">
-						{logoText}
+						<img src="/images/logo.png" className="site-logo" alt="site logo" />
 					</a>
 
 					<button
 						className="navbar-toggler p-0 border-0 shadow-none"
 						type="button"
-						data-bs-toggle="offcanvas"
-						data-bs-target="#offcanvasNavbar"
-						aria-controls="offcanvasNavbar"
-						aria-expanded="false"
+						onClick={toggleMenu}
 						aria-label="Toggle navigation"
 					>
 						<span className="navbar-toggler-icon"></span>
 					</button>
 
-					<div
-						className="offcanvas offcanvas-start w-100"
-						tabIndex="-1"
-						id="offcanvasNavbar"
-						aria-labelledby="offcanvasNavbarLabel"
-					>
-						<div className="offcanvas-header">
-							<h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-								<a href="#" className="fw-semibold nav-link">
-									{logoText}
-								</a>
-							</h5>
-							<button
-								type="button"
-								className="btn-close"
-								data-bs-dismiss="offcanvas"
-								aria-label="Close"
-							></button>
-						</div>
-
-						<div className="offcanvas-body d-flex justify-content-center">
-							<ul className="navbar-nav gap-3 text-center w-100 justify-content-md-end align-items-center">
+					{/* Mobile popup menu */}
+					{showMobileMenu && (
+						<div
+							ref={mobileMenuRef}
+							className="position-absolute top-0 start-0 ms-3 rounded-3 w-auto bg-white shadow py-3 d-md-none"
+							style={{ zIndex: 1050 }}
+						>
+							<ul className="mobile-menu navbar-nav px-5 py-2">
 								<li className="nav-item">
-									<a className="nav-link active fw-medium" href="#">
-										about
+									<a
+										className="nav-link active fs-4 fw-medium"
+										href="#"
+										onClick={toggleMenu}
+									>
+										Home
 									</a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link fw-medium" href="#">
-										projects
+									<a
+										className="nav-link fs-4 fw-medium"
+										href="#"
+										onClick={toggleMenu}
+									>
+										About
 									</a>
+								</li>
+								<li className="nav-item">
+									<a
+										className="nav-link fs-4 fw-medium"
+										href="#"
+										onClick={toggleMenu}
+									>
+										Projects
+									</a>
+								</li>
+								<li className="d-flex justify-content-between align-items-center gap-4 mt-3">
+									<SocialLinks />
 								</li>
 							</ul>
 						</div>
+					)}
+
+					{/* Desktop menu */}
+					<div className="collapse navbar-collapse justify-content-md-end d-none d-md-flex">
+						<ul className="navbar-nav gap-3 text-center w-100 justify-content-md-end align-items-center">
+							<li className="nav-item">
+								<a className="nav-link fw-medium" href="#">
+									about
+								</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link fw-medium" href="#">
+									projects
+								</a>
+							</li>
+						</ul>
 					</div>
+
 					<div className="ms-4">
 						<PrimaryButton dark={true} />
 					</div>

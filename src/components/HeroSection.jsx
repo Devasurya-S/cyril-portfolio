@@ -9,7 +9,7 @@ const HeroSection = () => {
     const interval = setInterval(() => {
       setCurrentProfessionIndex((prevIndex) => (prevIndex + 1) % professions.length);
       setKey((prevKey) => prevKey + 1); // Update key to restart animation
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -26,7 +26,7 @@ const HeroSection = () => {
 								{professions[currentProfessionIndex]}
 							</h2>
 						</div>
-						<div className="col-10 col-md-6 col-lg-5 col-xxl-6">
+						<div className="col-10 col-md-6 col-lg-5">
 							<div>
 								<img
 									src="/images/hero-bg.png"

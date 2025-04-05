@@ -1,41 +1,9 @@
 import React from "react";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
-	const socials = [
-		{
-			name: "Behance",
-			url: "images/behance-icon.svg",
-		},
-		{
-			name: "LinkedIn",
-			url: "images/linkedin-icon.svg",
-		},
-		{
-			name: "Instagram",
-			url: "images/insta-icon.svg",
-		},
-	];
-
-	const SocialLinks = () => {
-		const linkRender = socials.map((social, index) => {
-			return (
-				<a key={index} className="nav-link">
-					<span className="d-flex align-items-center gap-2 fw-medium">
-						<img
-							src={social.url}
-							className="footer-social-icon"
-							alt="icon of social account"
-						/>
-						{social.name}
-					</span>
-				</a>
-			);
-		});
-		return linkRender;
-	};
-
 	return (
 		<footer>
 			<div className="container">
@@ -65,7 +33,7 @@ const Footer = () => {
 										Projects
 									</a>
 								</nav>
-								<div className="d-flex gap-3 flex-wrap justify-content-around justify-content-md-between justify-content-lg-around justify-content-xl-between">
+								<div className="d-flex gap-2 flex-wrap justify-content-between">
 									<SocialLinks />
 								</div>
 							</div>

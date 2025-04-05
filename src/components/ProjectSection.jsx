@@ -47,7 +47,7 @@ const ProjectSection = () => {
 						>
 							<div className="position-absolute top-0 start-0 m-4">
 								<h3 className="mb-3 fs-4 fw-semibold">{project.title}</h3>
-								<p className="fw-light fs-6">{project.description}</p>
+								<p className="fw-light small">{project.description}</p>
 							</div>
 						</div>
 					</a>

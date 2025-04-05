@@ -5,12 +5,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 import ProjectSection from "./components/ProjectSection";
-import CustomCursorComponent from "./components/CustomCursorComponent";
+// import CustomCursorComponent from "./components/CustomCursorComponent";
 
 const App = () => {
 	return (
 		<>
-    <CustomCursorComponent/>
+    {/* <CustomCursorComponent/> */}
 			<Navbar />
       <main>
         <HeroSection/>
